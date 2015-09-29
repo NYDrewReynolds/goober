@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Create a Rider
+User.create(name: "Drew Reynolds", email: "drew@turing.io", phone_number: "15169872695", password: "password")
+
+# Create a Driver
+User.create(name: "Justin Holmezi", email: "jdog@email.com", phone_number: "15169872692", password: "password", role: 1, car_make: "Honda", car_model: "Civic", car_capacity: 4)

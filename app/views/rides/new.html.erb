@@ -1,0 +1,19 @@
+<div class="container text-center">
+  <h1>Request a Goober!</h1><br>
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-4">
+      <%= form_for @ride do |f| %>
+          <div class="form-group">
+            <%= f.text_field :pickup_location, placeholder: "pickup location", class: "form-control" %><br>
+
+            <%= f.text_field :dropoff_location, placeholder: "dropoff location", class: "form-control" %><br>
+
+            <%= f.number_field :passenger_count, placeholder: "number of passengers", class: "form-control" %><br>
+
+            <%= f.submit "Request a Ride", class: "btn btn-primary" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

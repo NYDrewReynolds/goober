@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show]
 
   def new_rider
-    @user = User.new(rider_params)
+    @user = User.new
   end
 
   def create_rider
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Your account was successfully created!"
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       flash[:error] = "Please be sure to include a name and a valid email."
       render :new
@@ -17,15 +18,16 @@ class UsersController < ApplicationController
   end
 
   def new_driver
-    @user = User.new(driver_params)
+    @user = User.new
   end
 
   def create_driver
     @user = User.new(driver_params)
     if @user.save
+      @user.update!(role: 1)
       flash[:notice] = "Your account was successfully created!"
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to dashboard_path
     else
       flash[:error] = "Please be sure to include a name and a valid email."
       render :new
@@ -33,7 +35,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    
   end
 
   private

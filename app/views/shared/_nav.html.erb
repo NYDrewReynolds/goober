@@ -17,6 +17,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
+            <li><a class="disabled"><%= current_user.name %></a></li>
             <li><%= link_to "Logout", logout_path, method: 'delete' %></li>
         <% else %>
             <%= form_for(:session, url: login_path, html: {class: "navbar-form"}) do |f| %>

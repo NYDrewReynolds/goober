@@ -5,10 +5,10 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :phone_number
       t.string :password_digest
-      t.boolean :role, null: false, default: false
+      t.integer :role, default: 0
       t.string :car_make
       t.string :car_model
-      t.string :car_capacity
+      t.integer :car_capacity
 
       t.timestamps null: false
     end

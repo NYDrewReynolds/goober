@@ -1,9 +1,9 @@
 <div class="container text-center">
-  <h1>Make Money Driver for Goober!</h1><br>
+  <h1>Make Money Driving for Goober!</h1><br>
 
   <div class="row">
     <div class="col-md-5 col-md-offset-4">
-      <%= form_for(@user) do |f| %>
+      <%= form_for @user, :url => {:controller => "users", :action => "create_driver"} do |f| %>
           <div class="form-group">
             <%= f.text_field :name, placeholder: "name", class: "form-control" %><br>
 
@@ -11,9 +11,9 @@
 
             <%= f.text_field :phone_number, placeholder: "phone number", class: "form-control" %><br>
 
-            <%= f.password_field :password, placeholder: "password", class: "form-control" %>
+            <%= f.password_field :password, placeholder: "password", class: "form-control" %><br>
 
-            <%= f.password_field :password_confirmation, placeholder: "confirm password", class: "form-control" %>
+            <%= f.password_field :password_confirmation, placeholder: "confirm password", class: "form-control" %><br>
 
             <%= f.text_field :car_make, placeholder: "car make", class: "form-control" %><br>
 

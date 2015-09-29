@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :users
+  resources :rides
+
   get '/dashboard', to: 'users#show'
 
   get '/new-driver', to: 'users#new_driver'

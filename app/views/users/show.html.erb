@@ -1,1 +1,8 @@
-<h1>Hello, <%= current_user.name %>!</h1>
+<h1 class="text-center">Hello, <%= current_user.name %>! - <%= current_user.role.capitalize %></h1>
+
+<% if current_user.driver? %>
+<%= render partial: 'shared/driver_dashboard' %>
+<% else %>
+<%= render partial: 'shared/rider_dashboard' %>
+<% end %>
+
