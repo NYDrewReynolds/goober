@@ -1,0 +1,23 @@
+<div class="container text-center">
+  <h1>Start Riding with Goober Today!</h1><br>
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-4">
+      <%= form_for @user, :url => {:controller => "users", :action => "create_rider"} do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, placeholder: "name", class: "form-control" %><br>
+
+            <%= f.text_field :email, placeholder: "email", class: "form-control" %><br>
+
+            <%= f.text_field :phone_number, placeholder: "phone number", class: "form-control" %><br>
+
+            <%= f.password_field :password, placeholder: "password", class: "form-control" %>
+
+            <%= f.password_field :password_confirmation, placeholder: "confirm password", class: "form-control" %>
+
+            <%= f.submit "Create Account", class: "btn btn-primary" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

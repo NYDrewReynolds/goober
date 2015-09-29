@@ -1,0 +1,29 @@
+<div class="container text-center">
+  <h1>Make Money Driver for Goober!</h1><br>
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-4">
+      <%= form_for(@user) do |f| %>
+          <div class="form-group">
+            <%= f.text_field :name, placeholder: "name", class: "form-control" %><br>
+
+            <%= f.text_field :email, placeholder: "email", class: "form-control" %><br>
+
+            <%= f.text_field :phone_number, placeholder: "phone number", class: "form-control" %><br>
+
+            <%= f.password_field :password, placeholder: "password", class: "form-control" %>
+
+            <%= f.password_field :password_confirmation, placeholder: "confirm password", class: "form-control" %>
+
+            <%= f.text_field :car_make, placeholder: "car make", class: "form-control" %><br>
+
+            <%= f.text_field :car_model, placeholder: "car model", class: "form-control" %><br>
+
+            <%= f.text_field :car_capacity, placeholder: "car capacity", class: "form-control" %><br>
+
+            <%= f.submit "Create Account", class: "btn btn-primary" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
