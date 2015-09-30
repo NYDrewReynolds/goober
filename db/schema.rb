@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20150929225838) do
   create_table "rides", force: :cascade do |t|
     t.string   "pickup_location"
     t.string   "dropoff_location"
+    t.integer  "distance"
+    t.integer  "drive_time"
     t.integer  "passenger_count"
     t.integer  "status",           default: 0
     t.datetime "accepted_time"

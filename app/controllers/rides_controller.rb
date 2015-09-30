@@ -8,6 +8,7 @@ class RidesController < ApplicationController
   def create
     @ride = Ride.new(ride_params)
     @ride.rider_id = current_user.id
+    @ride.map_math
     if @ride.save
       flash[:notice] = "You have requested a ride!"
       redirect_to dashboard_path

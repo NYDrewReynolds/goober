@@ -41,4 +41,20 @@ class Ride < ActiveRecord::Base
     result = (length_of_ride / 180) * 2
     self.update!(cost: result.round(2))
   end
+
+  def map_math
+    directions = GoogleDirections.new(self.pickup_location, self.dropoff_location)
+    calculate_distance(directions)
+    calculate_eta(directions)
+  end
+
+  def calculate_distance(directions)
+    distance = directions.drive_time_in_minutes
+    self.update!(distance: distance)
+  end
+
+  def calculate_eta(directions)
+    eta = directions.distance_in_miles
+    self.update!(drive_time: eta)
+  end
 end

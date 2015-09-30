@@ -3,6 +3,8 @@ class CreateRides < ActiveRecord::Migration
     create_table :rides do |t|
       t.string :pickup_location
       t.string :dropoff_location
+      t.integer :distance
+      t.integer :drive_time
       t.integer :passenger_count
       t.integer :status, default: 0
       t.datetime :accepted_time
