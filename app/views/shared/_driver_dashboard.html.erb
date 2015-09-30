@@ -1,9 +1,7 @@
 <div class="row">
-  <% if available_rides %>
-      <%= render :partial => "rides/available_rides", locals: {rides: available_rides} %>
+  <% if currently_driving %>
+      <%= render :partial => "rides/current_drive", locals: {ride: currently_driving} %>
   <% else %>
-      <div class="col-md-4 col-md-offset-4 text-center">
-        <%= button_to 'Request a Ride', new_ride_path, class: 'btn btn-success btn-lg', type: 'button', method: 'get' %>
-      </div>
+      <%= render :partial => "rides/available_rides", locals: {rides: available_rides} %>
   <% end %>
 </div>

@@ -7,8 +7,4 @@ class User < ActiveRecord::Base
 
   enum role: [:rider, :driver]
 
-  def current_ride
-    Ride.where(rider_id: id)
-  end
-
 end

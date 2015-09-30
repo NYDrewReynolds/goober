@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     @current_ride ||= Ride.where(rider_id: current_user.id).where(status: [0,1,2]).first
   end
 
+  def currently_driving
+    @current_ride ||= Ride.where(driver_id: current_user.id).where(status: [1, 2]).first
+  end
+
   def available_rides
     @available_rides ||= Ride.where(status: 0).where("passenger_count <= ?", current_user.car_capacity)
   end
@@ -30,4 +34,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :current_ride
   helper_method :available_rides
+  helper_method :currently_driving
+
 end

@@ -17,6 +17,15 @@ class RidesController < ApplicationController
     end
   end
 
+  def edit
+    @ride = Ride.find(params[:id])
+    @ride.update_status_and_time
+    if @ride.driver_id.nil?
+      @ride.update!(driver_id: current_user.id)
+    end
+    redirect_to dashboard_path
+  end
+
   private
 
   def ride_params

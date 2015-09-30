@@ -9,7 +9,7 @@
         <tr>
           <td><%= ride.pickup_location %></td>
           <td><%= ride.passenger_count %></td>
-          <td>Accept?</td>
+          <td><%= button_to 'Accept', edit_ride_path(ride), class: 'btn btn-success', type: 'button', method: 'get' %></td>
         </tr>
     <% end %>
   </table>
