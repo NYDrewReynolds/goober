@@ -1,0 +1,5 @@
+<% if ride.accepted? %>
+    <%= button_to 'Pick Up Rider', edit_ride_path(ride), class: 'btn btn-success', type: 'button', method: 'get' %>
+<% elsif ride.picked_up? %>
+    <%= button_to 'Complete Ride', edit_ride_path(ride), class: 'btn btn-success', type: 'button', method: 'get' %>
+<% end %>

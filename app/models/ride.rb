@@ -11,7 +11,7 @@ class Ride < ActiveRecord::Base
       self.accepted! && set_accepted_time
     elsif status == "accepted"
       self.picked_up! && set_pickup_time
-    elsif status == "pickedup"
+    elsif status == "picked_up"
       self.completed! && set_completed_time
     end
   end

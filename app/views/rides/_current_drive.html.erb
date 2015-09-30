@@ -1,7 +1,9 @@
 <div class="col-md-4 col-md-offset-1">
   <h2>Ride Status:</h2>
 
-  <p><%= ride.status.capitalize %></p>
+  <p><%= ride.status.humanize %></p>
+  <%= render partial: "rides/ride_status_btn", locals: {ride: ride} %>
+
 
   <h3>Pickup Location:</h3>
 
