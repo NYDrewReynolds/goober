@@ -1,4 +1,6 @@
 class RidesController < ApplicationController
+  before_action :check_for_current_ride
+
   def new
     @ride = Ride.new
   end

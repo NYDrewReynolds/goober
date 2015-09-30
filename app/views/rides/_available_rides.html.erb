@@ -1,0 +1,16 @@
+<div class="col-md-6 col-md-offset-3">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>Pickup Location</th>
+      <th>Number of Passengers</th>
+      <th></th>
+    </tr>
+    <% rides.each do |ride| %>
+        <tr>
+          <td><%= ride.pickup_location %></td>
+          <td><%= ride.passenger_count %></td>
+          <td>Accept?</td>
+        </tr>
+    <% end %>
+  </table>
+</div>

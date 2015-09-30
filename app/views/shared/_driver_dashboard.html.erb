@@ -1,1 +1,9 @@
-<h3>Driver Dash</h3>
+<div class="row">
+  <% if available_rides %>
+      <%= render :partial => "rides/available_rides", locals: {rides: available_rides} %>
+  <% else %>
+      <div class="col-md-4 col-md-offset-4 text-center">
+        <%= button_to 'Request a Ride', new_ride_path, class: 'btn btn-success btn-lg', type: 'button', method: 'get' %>
+      </div>
+  <% end %>
+</div>

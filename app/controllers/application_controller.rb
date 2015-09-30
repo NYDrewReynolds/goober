@@ -7,11 +7,27 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def current_ride
+    @current_ride ||= Ride.where(rider_id: current_user.id).where(status: [0,1,2]).first
+  end
+
+  def available_rides
+    @available_rides ||= Ride.where(status: [0, 1, 2]).where("passenger_count <= ?", current_user.car_capacity)
+  end
+
   def require_login
     unless current_user
       redirect_to root_path
     end
   end
 
+  def check_for_current_ride
+    if current_ride
+      redirect_to dashboard_path
+    end
+  end
+
   helper_method :current_user
+  helper_method :current_ride
+  helper_method :available_rides
 end
