@@ -40,10 +40,10 @@ class UsersController < ApplicationController
   private
 
   def rider_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :phone_number, :password_confirmation)
   end
 
   def driver_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :car_make, :car_model, :car_capacity)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone_number, :car_make, :car_model, :car_capacity)
   end
 end
