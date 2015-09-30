@@ -32,4 +32,8 @@ class Ride < ActiveRecord::Base
     @ride_driver ||= User.find(self.driver_id)
   end
 
+  def ride_rider
+    @ride_rider ||= User.find(self.rider_id)
+  end
+
 end

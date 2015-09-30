@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
     @available_rides ||= Ride.where(status: 0).where("passenger_count <= ?", current_user.car_capacity)
   end
 
+  def completed_rides
+    @completed_rides ||= Ride.where("rider_id = ? OR driver_id = ?", current_user.id, current_user.id)
+  end
+
   def require_login
     unless current_user
       redirect_to root_path
@@ -35,5 +39,5 @@ class ApplicationController < ActionController::Base
   helper_method :current_ride
   helper_method :available_rides
   helper_method :currently_driving
-
+  helper_method :completed_rides
 end
