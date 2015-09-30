@@ -18,7 +18,10 @@ RSpec.describe User, type: :model do
                               role: 1} }
 
     it "is valid" do
-      user = User.create(valid_attributes)
+      user = User.create(name: "Johnny Appleseed",
+                         email: "hello123123456789@email.com",
+                         phone_number: "15169872695",
+                         password: "password")
 
       expect(user).to be_valid
     end
@@ -48,22 +51,35 @@ RSpec.describe User, type: :model do
     end
 
     it "is assigned a Rider role by default" do
-      user = User.create(valid_attributes)
+      user = User.create(name: "Johnny Appleseed",
+                         email: "hello123444@email.com",
+                         phone_number: "15169872695",
+                         password: "password")
 
       expect(user).to be_valid
       expect(user.role).to eq("rider")
     end
 
     it "is invalid unless email is unique" do
-      user_one = User.create(valid_attributes)
-      user_two = User.create(name: "Drew", email: "hello123@email.com", phone_number: "15169872695", password: "password")
+      user_one = User.create(name: "Johnny Appleseed",
+                             email: "hello123999@email.com",
+                             phone_number: "15169872695",
+                             password: "password")
+      user_two = User.create(name: "Drew", email: "hello123999@email.com", phone_number: "15169872695", password: "password")
 
       expect(user_one).to be_valid
       expect(user_two).not_to be_valid
     end
 
     it "is able to sign up as a driver" do
-      user = User.create(valid_driver)
+      user = User.create(name: "Johnny Appleseed",
+                         email: "hello123777555@email.com",
+                         phone_number: "15169872695",
+                         password: "password",
+                         car_make: "Honda",
+                         car_model: "Civic",
+                         car_capacity: 2,
+                         role: 1)
 
       expect(user).to be_valid
       expect(user.role).to eq("driver")

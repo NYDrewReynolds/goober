@@ -114,7 +114,7 @@ RSpec.describe Ride, type: :model do
 
     it "is valid with rider & driver ID" do
       rider = User.create(name: "Johnny Appleseed",
-                          email: "hello123@email.com",
+                          email: "hello1235678910@email.com",
                           phone_number: "15169872695",
                           password: "password")
 
