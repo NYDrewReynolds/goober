@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4 col-md-offset-4 text-center">
-      <h3>Completed Rides</h3>
+      <h2>Completed Rides</h2>
     </div>
 </div>
 <div class="row">
@@ -13,6 +13,7 @@
         <th>Dropoff Location</th>
         <th>Requested Time</th>
         <th>Accepted Time</th>
+        <th>Pickedup Time</th>
         <th>Completed Time</th>
         <th>Ride Cost</th>
       </tr>
@@ -22,10 +23,11 @@
             <td><%= ride.ride_driver.name %></td>
             <td><%= ride.pickup_location %></td>
             <td><%= ride.dropoff_location %></td>
-            <td><%= time_tag ride.requested_time, :format => '%B %d, %Y %l:%M %p' %></td>
-            <td><%= time_tag ride.accepted_time, :format => '%B %d, %Y %l:%M %p' %></td>
-            <td><%= time_tag ride.dropoff_time, :format => '%B %d, %Y %l:%M %p' %></td>
-            <td><%= ride.cost %></td>
+            <td class="text-center"><%= time_tag ride.requested_time, :format => '%B %d, %Y %l:%M %p' %></td>
+            <td class="text-center"><%= time_tag ride.accepted_time, :format => '%B %d, %Y %l:%M %p' %></td>
+            <td class="text-center"><%= time_tag ride.pickup_time, :format => '%B %d, %Y %l:%M %p' %></td>
+            <td class="text-center"><%= time_tag ride.dropoff_time, :format => '%B %d, %Y %l:%M %p' %></td>
+            <td><%= number_to_currency(ride.cost, precision: 2) %></td>
           </tr>
       <% end %>
     </table>

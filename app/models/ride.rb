@@ -12,7 +12,7 @@ class Ride < ActiveRecord::Base
     elsif status == "accepted"
       self.picked_up! && set_pickup_time
     elsif status == "picked_up"
-      self.completed! && set_completed_time
+      self.completed! && set_completed_time && calculate_cost
     end
   end
 
@@ -36,4 +36,9 @@ class Ride < ActiveRecord::Base
     @ride_rider ||= User.find(self.rider_id)
   end
 
+  def calculate_cost
+    length_of_ride = (self.dropoff_time - self.pickup_time)
+    result = (length_of_ride / 180) * 2
+    self.update!(cost: result.round(2))
+  end
 end

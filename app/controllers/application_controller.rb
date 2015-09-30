@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def completed_rides
-    @completed_rides ||= Ride.where("rider_id = ? OR driver_id = ?", current_user.id, current_user.id)
+    @completed_rides ||= Ride.where(status: 3).where("rider_id = ? OR driver_id = ?", current_user.id, current_user.id)
   end
 
   def require_login

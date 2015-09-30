@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150929225838) do
     t.datetime "accepted_time"
     t.datetime "pickup_time"
     t.datetime "dropoff_time"
-    t.integer  "cost"
+    t.float    "cost"
     t.integer  "rider_id"
     t.integer  "driver_id"
     t.datetime "created_at",                   null: false
