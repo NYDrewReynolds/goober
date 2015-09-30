@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def available_rides
-    @available_rides ||= Ride.where(status: [0, 1, 2]).where("passenger_count <= ?", current_user.car_capacity)
+    @available_rides ||= Ride.where(status: 0).where("passenger_count <= ?", current_user.car_capacity)
   end
 
   def require_login
