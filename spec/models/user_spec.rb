@@ -68,7 +68,5 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
       expect(user.role).to eq("driver")
     end
-
-
   end
 end

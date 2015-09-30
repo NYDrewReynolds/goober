@@ -1,5 +1,7 @@
 class Ride < ActiveRecord::Base
 
+  validates_presence_of :pickup_location, :dropoff_location, :passenger_count
+
   enum status: [:active, :accepted, :picked_up, :completed]
 
   def requested_time
