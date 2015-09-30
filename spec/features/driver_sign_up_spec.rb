@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "User " do
 
-  context "with valid log in credentials", js: true do
+  context "with valid log in credentials" do
 
     scenario "can sign up as a driver" do
       visit root_path
